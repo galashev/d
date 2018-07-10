@@ -9,9 +9,16 @@ import java.io.IOException;
 public class SimpleServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest reqest, HttpServletResponse response)
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.getWriter().println("genesis");
+
+        String path = request.getServletPath();
+        response.getWriter().println(path);
+
+        if (request instanceof HttpServletRequest) {
+            String url = ((HttpServletRequest) request).getRequestURL().toString();
+            response.getWriter().println(url);
+        }
     }
     @Override
     public void init() throws ServletException {

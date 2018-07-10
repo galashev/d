@@ -13,6 +13,6 @@ public class Services implements IService {
     public void handleRequest(HttpServletRequest request, HttpServletResponse response) {
         response.setContentType("text/html;charset=UTF-8");
 
-
+        // Список сервисов ...
     }
 }
